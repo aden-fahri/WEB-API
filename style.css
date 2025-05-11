@@ -1,0 +1,231 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  font-weight: 600;
+}
+
+body {
+  background: url(mountain.png);
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100dvh;
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(15px);
+}
+
+/* utilities */
+
+.regular-txt {
+  font-weight: 400;
+}
+
+/* end utilities */
+
+.main-container {
+  border: solid;
+  width: 100%;
+  max-width: 300px;
+  height: 496px;
+  z-index: 1;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.15),
+    rgba(255, 255, 255, 0.15)
+  );
+  border-radius: 12px;
+  backdrop-filter: blur(100px);
+  padding: 20px;
+}
+
+/* start input container*/
+
+.input-container {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.city-input {
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 100px;
+  border: 3px solid transparent;
+  background: rgba(0, 0, 0, 0.15);
+  outline: none;
+  font-weight: 500;
+  transition: 0.25s border;
+  padding-right: 45px;
+}
+
+.city-input:focus {
+  border: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.city-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.search-btn {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  display: flex;
+  border: none;
+  cursor: pointer;
+}
+/* end input container*/
+
+/* start section weather info */
+
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.location-date-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.weather-summary-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.weather-summary-img {
+  width: 120px;
+  height: 120px;
+}
+.weather-summary-info {
+  text-align: end;
+}
+.weather-conditions-container {
+  display: flex;
+  justify-content: space-between;
+}
+.condition-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.condition-item span {
+  font-size: 30px;
+}
+.forecast-items-container {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  -ms-overflow-style: none;
+}
+.forecast-items-container::-webkit-scrollbar {
+  height: 8px;
+}
+.forecast-items-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 100px;
+}
+.forecast-items-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 100px;
+}
+.forecast-item {
+  min-width: 70px;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 6;
+  padding: 10;
+  align-items: center;
+  border-radius: 12px;
+  transition: 0.3s background;
+}
+.forecast-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+.forecast-item-img {
+  width: 35px;
+  height: 35px;
+}
+/* end section weather info */
+
+/* section message */
+
+.section-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+  margin-top: 25%;
+}
+.section-message img {
+  height: 180px;
+  width: fit-content;
+}
+
+/* end section message */
+
+/* Loading Spinner */
+
+.loading-spinner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  z-index: 2;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-top: 5px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loading-text {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* End Loading Spinner */
